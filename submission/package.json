@@ -1,0 +1,34 @@
+{
+  "name": "web222-assignment4",
+  "private": true,
+  "version": "1.0.2",
+  "description": "WEB222 Assignment 4",
+  "scripts": {
+    "copy-src": "copyfiles package.json src/**/* src/* submission",
+    "mkdir": "mkdirp submission",
+    "eslint-to-file": "npm run eslint 1> submission/eslint.log 2>&1",
+    "eslint": "eslint src/**/*.js",
+    "prettier": "prettier --write \"src/**/*.{html,js,css}\"",
+    "server": "serve src",
+    "preprepare-submission": "rimraf submission",
+    "prepare-submission": "run-s -n -c prettier mkdir eslint-to-file copy-src zip",
+    "prezip": "rimraf submission.zip",
+    "zip": "bestzip submission.zip submission/*",
+    "clean": "rimraf submission submission.zip",
+    "start": "npm run server"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "bestzip": "^2.1.7",
+    "copyfiles": "^2.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mkdirp": "^1.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.0",
+    "rimraf": "^3.0.2",
+    "serve": "^11.3.2"
+  },
+  "dependencies": {}
+}
